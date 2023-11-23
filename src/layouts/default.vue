@@ -1,12 +1,4 @@
 <template>
-<<<<<<< Updated upstream
-  <div>
-    <BaseNavbar />
-    <slot />
-  </div>
-</template>
-<script setup></script>
-=======
   <div class="flex h-screen bg-default text-white">
     <Sidebar />
     <div class="flex flex-1 h-screen">
@@ -25,4 +17,3 @@
   });
 </script>
 
->>>>>>> Stashed changes
