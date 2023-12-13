@@ -1,12 +1,3 @@
-<script setup>
-  defineProps({
-    title: String,
-    iconName: String,
-    isActiveSidebarId: Number,
-    id: Number,
-    linkTo: String,
-  });
-</script>
 <template>
   <NuxtLink
     :to="linkTo"
@@ -15,7 +6,15 @@
       { 'bg-sidebarHover border-r-[1px]': isActiveSidebarId == id },
     ]"
   >
-    <Icon :name="iconName" class="w-4 h-4" /><span>{{ title }}</span>
+    <Icon v-if="iconName" :name="iconName" class="w-4 h-4" /><span>{{ title }}</span>
   </NuxtLink>
 </template>
-
+<script setup lang="ts">
+  defineProps({
+    title: String,
+    iconName: String,
+    isActiveSidebarId: Number,
+    id: Number,
+    linkTo: String,
+  });
+</script>

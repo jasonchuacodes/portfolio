@@ -58,4 +58,3 @@
     isActiveSidebarId.value = id;
   };
 </script>
-
