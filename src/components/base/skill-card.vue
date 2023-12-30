@@ -5,17 +5,19 @@
     class="card relative h-40 w-24 cursor-pointer"
   >
     <h2
-      class="text-transform-capitalize p-2 text-center text-h4 font-russo tracking-widest text-primary-500"
+      class="p-2 text-center text-h4 mb-4 font-russo tracking-widest capitalize"
+      :class="{ 'text-primary-500': showSkillInfo }"
     >
-      title
+      {{ title }}
     </h2>
     <Transition name="skill-info">
       <div v-if="showSkillInfo">
-        <div class="p-2 flex w-full justify-center text-center">
+        <div
+          v-for="skill in skills"
+          class="p-1 flex w-full justify-center text-center text-white capitalize"
+        >
           <ul>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
+            <li>{{ skill }}</li>
           </ul>
         </div>
       </div>
@@ -24,6 +26,13 @@
 </template>
 
 <script setup lang="ts">
+  type ButtonProps = {
+    title: string;
+    skills: string[];
+  };
+
+  defineProps<ButtonProps>();
+
   const showSkillInfo = ref(false);
 
   const handleHoverOut = () => {
@@ -33,6 +42,7 @@
     showSkillInfo.value = true;
   };
 </script>
+
 <style scoped>
   .card::before {
     content: "";
@@ -61,9 +71,6 @@
   }
   .card:hover::after {
     transform: scale(1);
-  }
-  .text-transform-capitalize {
-    text-transform: capitalize;
   }
   .skill-info-enter-active,
   .skill-info-leave-active {
