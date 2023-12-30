@@ -21,7 +21,6 @@
 <style scoped>
   .hero {
     position: relative;
-    padding: 40px 8px;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -46,6 +45,7 @@
   .content {
     display: flex;
     flex-direction: column;
+    padding: 10px 0px;
     align-items: center;
     position: relative;
     color: #fff;

@@ -1,10 +1,12 @@
 <template>
-  <Icon
+  <NuxtLink :to="link" target="_blank">
+    <Icon
     v-if="iconName"
     :name="iconName"
     :class="class"
     class="w-8 h-8 text-light hover:text-white hover:cursor-pointer"
   />
+  </NuxtLink>
 </template>
 <script setup lang="ts">
   defineProps({
@@ -13,6 +15,6 @@
       type: String,
       default: undefined,
     },
-    githubLink: String
+    link: String
   });
 </script>

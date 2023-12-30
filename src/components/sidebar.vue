@@ -18,8 +18,8 @@
       </div>
     </div>
     <div class="space-x-4">
-      <BaseSidebarIcon icon-name="mdi:github" />
-      <BaseSidebarIcon icon-name="mdi:linkedin" />
+      <BaseSidebarIconLink icon-name="mdi:github" :link=githubLink />
+      <BaseSidebarIconLink icon-name="mdi:linkedin" :link="linkedInlink" />
     </div>
   </div>
 </template>
@@ -54,6 +54,8 @@
     },
   ];
 
+  const githubLink = 'https://github.com/jasonchuacodes'
+  const linkedInlink = 'https://www.linkedin.com/in/jason-clyde-chua-65a322243/'
   const setSidebarItemIsActive = (id: number) => {
     isActiveSidebarId.value = id;
   };
