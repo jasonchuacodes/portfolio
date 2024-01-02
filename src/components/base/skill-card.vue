@@ -2,7 +2,7 @@
   <div
     @mouseenter="handleHoverIn"
     @mouseleave="handleHoverOut"
-    class="card relative h-40 w-24 cursor-pointer"
+    class="card relative h-40 w-min-24 cursor-pointer"
   >
     <h2
       class="p-2 text-center text-h4 mb-4 font-russo tracking-widest capitalize"

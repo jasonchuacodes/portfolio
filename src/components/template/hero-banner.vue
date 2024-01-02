@@ -40,7 +40,7 @@
     content: "";
     position: absolute;
     inset: 2px;
-    background: rgb(14, 18, 25);
+    background: rgb(12, 16, 22);
   }
   .content {
     display: flex;
