@@ -49,6 +49,9 @@ module.exports = {
       backgroundColor: {
         default: "#06080B",
       },
+      backgroundImage: {
+        'dots-pattern': "url('/assets/background-dots.png')"
+      } 
     },
   },
   plugins: [],
