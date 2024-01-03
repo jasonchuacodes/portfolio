@@ -1,4 +1,5 @@
-<template>
-  <div>WORK</div>
+<template>  
+  <!-- <div>WORK</div> -->
+  <BaseProjectCard />
 </template>
 <script setup lang="ts"></script>
