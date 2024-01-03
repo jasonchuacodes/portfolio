@@ -1,25 +1,45 @@
 <script setup lang="ts">
 type ProjectCardProps = {
+    id: number;
     title: string;
     filename: string;
+    activeId: number;
+    projectDetail: string;
 };
-defineProps<ProjectCardProps>();
 
+type ProjectCardEmits = {
+    (e: 'set-active-card', id: number): void,
+    (e: 'set-detail', detail: string): void,
+};
+
+defineProps<ProjectCardProps>();
+defineEmits<ProjectCardEmits>();
 </script>
 <template>
-    <div class="gradient-border">
+    <div
+        @click="$emit('set-active-card', id), $emit('set-detail', projectDetail)"
+        class=" card-container relative transition-all ease-out duration-300 cursor-pointer"
+        :class="{
+            'opacity-100': activeId == id,
+            'opacity-50': activeId !== id,
+            'hover:opacity-75': activeId !== id,
+        }"
+    >
         <div
             class="flex h-[96px] bg-light justify-center items-center overflow-hidden"
         >
-        <img :src="`images/${filename}`" alt="project image">
-        <!-- <img src='``@/public/project.png' alt="project image"> -->
+            <img
+                :src="`images/${filename}`"
+                :alt="`${filename}`"
+                class="transition-all ease-out duration-300"
+                :class="{ 'scale-150': activeId == id }"
+            />
         </div>
-        <p class="font-russo text-h3">{{ title }}</p>
+        <p class="font-russo text-h4 tracking-widest">{{ title }}</p>
     </div>
 </template>
 <style scoped>
-.gradient-border {
-    position: relative;
+.card-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,10 +47,11 @@ defineProps<ProjectCardProps>();
     height: 400px;
     row-gap: 24px;
     width: 169px;
+    padding: 0 1px;
 }
 
-.gradient-border::before,
-.gradient-border::after {
+.card-container::before,
+.card-container::after {
     content: "";
     position: absolute;
     top: 0;
@@ -39,11 +60,11 @@ defineProps<ProjectCardProps>();
     background: linear-gradient(to bottom, transparent, #fff, transparent);
 }
 
-.gradient-border::before {
+.card-container::before {
     left: 0;
 }
 
-.gradient-border::after {
+.card-container::after {
     right: 0;
 }
 </style>
