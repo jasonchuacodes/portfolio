@@ -1,4 +1,5 @@
-<template>
-  <div>WORK</div>
+<template>  
+  <TemplateProjectsSection />
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>

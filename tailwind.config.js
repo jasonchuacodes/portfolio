@@ -19,8 +19,8 @@ module.exports = {
       "p2-b": ["14px", { fontWeight: "600" }],
       "p3-r": ["12px", { lineHeight: "30px" }],
       "p3-b": ["12px", { fontWeight: "600" }],
-      "l1-r": ["20px", { lineHeight: "30px" }],
-      "l1-b": ["20px", { fontWeight: "600" }],
+      "l1-r": ["18px", { lineHeight: "30px" }],
+      "l1-b": ["18px", { fontWeight: "600" }],
       "l2-r": ["14px", { lineHeight: "30px" }],
       "l2-b": ["14px", { fontWeight: "600" }],
       "l3-r": ["12px", { lineHeight: "30px" }],
@@ -50,7 +50,7 @@ module.exports = {
         default: "#06080B",
       },
       backgroundImage: {
-        'dots-pattern': "url('/assets/background-dots.png')"
+        'dots-pattern': "url('images/background-dots.png')"
       } 
     },
   },

@@ -1,3 +1,13 @@
+<script setup lang="ts">
+type SidebarItemProps = {
+    title: string;
+    iconName: string;
+    isActiveSidebarId: number;
+    id: number;
+    linkTo: string;
+};
+defineProps<SidebarItemProps>();
+</script>
 <template>
     <NuxtLink
         :to="linkTo"
@@ -11,12 +21,3 @@
         }}</span>
     </NuxtLink>
 </template>
-<script setup lang="ts">
-defineProps({
-    title: String,
-    iconName: String,
-    isActiveSidebarId: Number,
-    id: Number,
-    linkTo: String,
-});
-</script>
