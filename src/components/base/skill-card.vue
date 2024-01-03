@@ -1,50 +1,48 @@
-<template>
-  <div
-    @mouseenter="handleHoverIn"
-    @mouseleave="handleHoverOut"
-    class="card relative h-40 w-min-24 cursor-pointer"
-  >
-    <h2
-      class="p-2 text-center text-h4 mb-4 font-russo tracking-widest capitalize"
-      :class="{ 'text-primary-500': showSkillInfo }"
-    >
-      {{ title }}
-    </h2>
-    <Transition name="skill-info">
-      <div v-if="showSkillInfo">
-        <div
-          v-for="skill in skills"
-          class="p-1 flex w-full justify-center text-center text-white capitalize"
-        >
-          <ul>
-            <li>{{ skill }}</li>
-          </ul>
-        </div>
-      </div>
-    </Transition>
-  </div>
-</template>
-
 <script setup lang="ts">
-  type ButtonProps = {
+type SkillCardProps = {
     title: string;
     skills: string[];
-  };
+};
 
-  defineProps<ButtonProps>();
+defineProps<SkillCardProps>();
 
-  const showSkillInfo = ref(false);
+const showSkillInfo = ref(false);
 
-  const handleHoverOut = () => {
+const handleHoverOut = () => {
     showSkillInfo.value = false;
-  };
-  const handleHoverIn = () => {
+};
+const handleHoverIn = () => {
     showSkillInfo.value = true;
-  };
+};
 </script>
-
+<template>
+    <div
+        @mouseenter="handleHoverIn"
+        @mouseleave="handleHoverOut"
+        class="card relative h-40 w-min-24 cursor-pointer"
+    >
+        <h2
+            class="p-2 text-center text-h4 mb-4 font-russo tracking-widest capitalize"
+            :class="{ 'text-primary-500': showSkillInfo }"
+        >
+            {{ title }}
+        </h2>
+        <Transition name="skill-info">
+            <div v-if="showSkillInfo">
+                <div
+                    v-for="skill in skills"
+                    class="p-1 flex w-full justify-center text-center text-white capitalize"
+                >
+                    <ul>
+                        <li>{{ skill }}</li>
+                    </ul>
+                </div>
+            </div>
+        </Transition>
+    </div>
+</template>
 <style scoped>
-  .card::before {
+.card::before {
     content: "";
     border-top: 1px solid white;
     position: absolute;
@@ -54,11 +52,11 @@
     transform: scaleX(0);
     transition: 0.3s;
     transition-timing-function: ease-in-out;
-  }
-  .card:hover::before {
+}
+.card:hover::before {
     transform: scaleX(1);
-  }
-  .card::after {
+}
+.card::after {
     content: "";
     border-bottom: 2px solid white;
     position: absolute;
@@ -68,18 +66,17 @@
     transform: scale(0);
     transition: 0.3s;
     transition-timing-function: ease-in-out;
-  }
-  .card:hover::after {
+}
+.card:hover::after {
     transform: scale(1);
-  }
-  .skill-info-enter-active,
-  .skill-info-leave-active {
+}
+.skill-info-enter-active,
+.skill-info-leave-active {
     transition: opacity 0.3s ease;
-  }
+}
 
-  .skill-info-enter-from,
-  .skill-info-leave-to {
+.skill-info-enter-from,
+.skill-info-leave-to {
     opacity: 0;
-  }
+}
 </style>
-

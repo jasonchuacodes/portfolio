@@ -50,7 +50,7 @@ module.exports = {
         default: "#06080B",
       },
       backgroundImage: {
-        'dots-pattern': "url('/assets/background-dots.png')"
+        'dots-pattern': "url('images/background-dots.png')"
       } 
     },
   },
