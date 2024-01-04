@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex flex-col justify-between items-center w-40 py-6 bg-sidebar"
+        class="flex flex-col justify-between items-center w-40 py-6 bg-sidebar/50 z-50"
     >
         <p class="text-light text-l1-r">
             jason.<span class="text-primary-400">chua</span>
