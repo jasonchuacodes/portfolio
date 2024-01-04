@@ -22,7 +22,7 @@ const handleHoverIn = () => {
         class="card relative h-40 w-min-24 cursor-pointer"
     >
         <h2
-            class="p-2 text-center text-h4 mb-4 font-russo tracking-widest capitalize"
+            class="px-4 py-2 text-center text-h4 mb-4 font-russo tracking-widest capitalize"
             :class="{ 'text-primary-500': showSkillInfo }"
         >
             {{ title }}
@@ -44,28 +44,33 @@ const handleHoverIn = () => {
 <style scoped>
 .card::before {
     content: "";
-    border-top: 1px solid white;
+    border-top: 2px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.5);
+    border-left: 1px solid rgba(255,255,255,0.5);
     position: absolute;
     width: 100%;
+    height: 4px;
     top: 0px;
     left: 0;
-    transform: scaleX(0);
+    transform: scaleX(1);
     transition: 0.3s;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-out;
 }
 .card:hover::before {
     transform: scaleX(1);
+    border-top: 2px solid rgba(255,255,255,0.8);
 }
 .card::after {
     content: "";
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.5);
+    border-left: 1px solid rgba(255,255,255,0.5);
     position: absolute;
     width: 100%;
-    top: 10px;
-    bottom: 0;
+    height: 10px;
     transform: scale(0);
     transition: 0.3s;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-out;
 }
 .card:hover::after {
     transform: scale(1);
