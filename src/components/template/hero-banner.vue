@@ -1,10 +1,12 @@
 <template>
     <div
-        class="hero  flex flex-col w-full items-center justify-center py-2 bg-white/5 "
+        class="hero flex flex-col items-center justify-center w-full py-2 bg-white/5"
     >
-        <h1 class="font-russo text-h1 text-white uppercase">{{ title }}</h1>
+        <h1 class="font-russo text-h1 tracking-wide uppercase text-onSurface">
+            {{ title }}
+        </h1>
         <p
-            class="font-rubik text-l1-r tracking-widest font-sans text-primary-500 uppercase"
+            class="font-rubik text-l1-r tracking-widest font-sans uppercase text-primary-500"
         >
             {{ position }}
         </p>
@@ -55,5 +57,4 @@ defineProps<HeroBannerProps>();
         border-left: 1px solid rgba(255, 255, 255, 0);
     }
 }
-
 </style>

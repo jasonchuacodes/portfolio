@@ -22,7 +22,7 @@ const handleHoverIn = () => {
         class="card relative h-40 w-min-24 cursor-pointer"
     >
         <h2
-            class="px-4 py-2 text-center text-h4 mb-4 font-russo tracking-widest capitalize"
+            class="px-4 py-2 mb-4 font-russo text-center text-h4 tracking-wider capitalize"
             :class="{ 'text-primary-500': showSkillInfo }"
         >
             {{ title }}
@@ -31,7 +31,7 @@ const handleHoverIn = () => {
             <div v-if="showSkillInfo">
                 <div
                     v-for="skill in skills"
-                    class="p-1 flex w-full justify-center text-center text-white capitalize"
+                    class="flex justify-center text-center w-full p-1 text-white capitalize"
                 >
                     <ul>
                         <li>{{ skill }}</li>
