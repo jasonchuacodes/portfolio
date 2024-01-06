@@ -28,6 +28,7 @@ module.exports = {
     },
     colors: {
       white: "#fff",
+      onSurface: "#e2e2e2",
       dark: "#293743",
       light: "#A0A7AD",
       neutral: "#545F69",
@@ -51,7 +52,11 @@ module.exports = {
       },
       backgroundImage: {
         'dots-pattern': "url('images/background-dots.png')"
-      } 
+      },
+      letterSpacing: {
+        wider: '.1em',
+        widest: '0.25em',
+      },
     },
   },
   plugins: [],

@@ -13,23 +13,23 @@ const layer0 = computed(() => ({
 <template>
     <div
         ref="target"
-        class="relative flex w-full h-full justify-center items-center transition-all ease-out duration-600 overflow-hidden"
+        class="relative flex justify-center items-center w-full h-full overflow-hidden transition-all ease-out duration-600"
     >
         <BaseFallingBoxes />
         <div
             :style="layer0"
-            class="layer0 absolute w-full h-full bg-dots-pattern bg-cover blur-lg opacity-[0.5] z-0"
+            class="layer0 absolute w-full h-full z-0 bg-dots-pattern bg-cover blur-lg opacity-[0.5]"
         ></div>
 
         <div
-            class="flex flex-col min-w-[560px] max-w-[640px] justify-center items-center space-y-16 text-light z-30"
+            class="flex flex-col justify-center items-center min-w-[560px] max-w-[640px] space-y-16 z-30 text-light"
         >
             <TemplateHeroBanner
-                title="jason clyde chua"
-                position="web developer"
+                title="Jason Clyde Chua"
+                position="Web Developer"
             />
             <div
-                class="flex w-full justify-center indent-8 text-center text-p1-r"
+                class="flex justify-center indent-8 text-center w-full text-p1-r"
             >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ex
                 hic neque quas blanditiis aperiam debitis quibusdam quis
