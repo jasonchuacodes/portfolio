@@ -16,7 +16,7 @@ const projects = [
         id: 3,
         title: "Project 3",
         filename: "project.png",
-        detail: " Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, fro",
+        detail: " Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consesum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, fro",
     },
     {
         id: 4,
@@ -38,8 +38,10 @@ const setProjectDetail = (info: string) => {
 };
 </script>
 <template>
-    <div class="flex flex-col justify-center items-center space-y-10">
-        <div class="flex w-full m-auto justify-center space-x-4">
+    <div
+        class="flex flex-col justify-center items-center h-screen space-y-10 overflow-hidden"
+    >
+        <div class="flex w-full mx-auto justify-center space-x-4">
             <div v-for="project in projects">
                 <BaseProjectCard
                     :id="project.id"
@@ -53,12 +55,12 @@ const setProjectDetail = (info: string) => {
             </div>
         </div>
         <div
-            class="relative h-60 w-96 opacity-50 border-light border-[1px] overflow-auto"
+            class="relative max-w-[640px] h-56 mx-auto overflow-auto text-light"
         >
             <label
-                class="flex w-full sticky top-0 backdrop-blur-xl text-l1-r uppercase tracking-widest p-2 bg-neutral/90"
-                >Details:</label
-            >
+                class="flex w-full sticky top-0 text-l1-r uppercase tracking-widest p-2 bg-neutral/50"
+                >Details:
+            </label>
             <p class="text-p2-r p-2">{{ details }}</p>
         </div>
     </div>
