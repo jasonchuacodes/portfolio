@@ -63,7 +63,6 @@ const linkedInlink = "https://www.linkedin.com/in/jason-clyde-chua-65a322243/";
                         :title="title"
                         :icon="icon"
                         :link-to="linkTo"
-                        :current-hash="currentHash"
                     ></BaseSidebarItem>
                 </div>
         </div>

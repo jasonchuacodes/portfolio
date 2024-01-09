@@ -4,9 +4,22 @@
     icon: string;
     id: number;
     linkTo: string;
-    currentHash: string;
   };
-  defineProps<SidebarItemProps>();
+  
+defineProps<SidebarItemProps>();
+const route = useRoute();
+const currentHash = ref('')
+
+onMounted(() => {
+  if (process.client) {
+   currentHash.value = localStorage.getItem('route-hash') || '/'
+  }
+
+  watch(() => route.hash, (newHash) => {
+    currentHash.value = newHash;
+    localStorage.setItem('route-hash', newHash);
+  });
+});
 </script>
 <template>
   <a
@@ -17,5 +30,3 @@
     <Icon v-if="icon" :name="icon" class="w-4 h-4" /><span>{{ title }}</span>
   </a>
 </template>
-<!-- exact-active-class="bg-sidebarHover border-r-[1px]" -->
-
