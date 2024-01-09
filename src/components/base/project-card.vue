@@ -23,6 +23,7 @@ defineEmits<ProjectCardEmits>();
             'opacity-100': activeId == id,
             'opacity-50': activeId !== id,
             'hover:opacity-75': activeId !== id,
+            'text-primary-500': activeId == id
         }"
     >
         <div

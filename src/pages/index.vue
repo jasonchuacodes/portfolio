@@ -4,6 +4,8 @@
         class="relative flex flex-col justify-center items-center overflow-auto w-full h-full transition-all ease-out duration-600"
     >
         <SectionsHomeSection />
-        <SectionsProjectsSection />
+        <SectionsWorkSection />
+        <SectionsAboutSection />
+        <SectionsContactSection />
     </div>
 </template>
