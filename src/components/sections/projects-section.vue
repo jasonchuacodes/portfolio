@@ -38,7 +38,7 @@ const setProjectDetail = (info: string) => {
 };
 </script>
 <template>
-    <div
+    <div id="projects"
         class="flex flex-col justify-center items-center h-screen space-y-10 overflow-hidden"
     >
         <div class="flex w-full mx-auto justify-center space-x-4">
