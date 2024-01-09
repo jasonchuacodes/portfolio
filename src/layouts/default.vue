@@ -29,7 +29,6 @@ const layer0 = computed(() => ({
             class="z-0 fixed left-0 top-0 w-full h-full opacity-[0.03] bg-circuit-pattern bg-repeat"
         ></div>
         <TemplateSidebar />
-        <!-- <BaseScanLines /> -->
         <BaseFallingBoxes />
         <div class="flex flex-1 justify-center items-center overflow-auto">
             <slot />

@@ -10,8 +10,8 @@ const sidebarItems = [
     },
     {
         id: 2,
-        title: "PROJECTS",
-        linkTo: "#projects",
+        title: "WORK",
+        linkTo: "#work",
         icon: "mdi:work",
     },
     {
@@ -28,10 +28,9 @@ const sidebarItems = [
     },
 ];
 
-
 const route = useRoute();
 const currentHash = ref(
-    process.client ? localStorage.getItem("currentHash") || "#home" : "#home"
+    process.client ? localStorage.getItem("route-hash") || "/" : "/"
 );
 
 onMounted(() => {
@@ -40,16 +39,11 @@ onMounted(() => {
             () => route.hash,
             (newHash) => {
                 currentHash.value = newHash;
-                localStorage.setItem("currentHash", newHash);
+                localStorage.setItem("route-hash", newHash);
             }
         );
     }
 });
-
-const findActiveLink = () => {
-  const activeItem = sidebarItems.find(item => item.linkTo === currentHash.value);
-  return activeItem ? activeItem.linkTo : null;
-};
 
 const githubLink = "https://github.com/jasonchuacodes";
 const linkedInlink = "https://www.linkedin.com/in/jason-clyde-chua-65a322243/";
@@ -69,6 +63,7 @@ const linkedInlink = "https://www.linkedin.com/in/jason-clyde-chua-65a322243/";
                         :title="title"
                         :icon="icon"
                         :link-to="linkTo"
+                        :current-hash="currentHash"
                     ></BaseSidebarItem>
                 </div>
         </div>

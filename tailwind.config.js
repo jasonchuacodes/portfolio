@@ -51,7 +51,7 @@ module.exports = {
         default: "#06080B",
       },
       backgroundImage: {
-        'circuit-pattern': "url('circuit-board/circuit-board.svg')"
+        'circuit-pattern': "url('/public/images/circuit-board.svg')"
       },
       letterSpacing: {
         wider: '.1em',
