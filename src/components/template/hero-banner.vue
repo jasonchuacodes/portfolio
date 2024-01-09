@@ -1,6 +1,6 @@
 <template>
     <div
-        class="hero flex flex-col items-center justify-center w-full py-2 bg-white/10"
+        class="hero flex flex-col items-center justify-center w-full py-2 bg-white/5"
     >
         <h1 class="font-russo text-h1 tracking-wide uppercase text-onSurface">
             {{ title }}
