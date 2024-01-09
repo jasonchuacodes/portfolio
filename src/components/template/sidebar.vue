@@ -28,23 +28,6 @@ const sidebarItems = [
     },
 ];
 
-const route = useRoute();
-const currentHash = ref(
-    process.client ? localStorage.getItem("route-hash") || "/" : "/"
-);
-
-onMounted(() => {
-    if (process.client) {
-        watch(
-            () => route.hash,
-            (newHash) => {
-                currentHash.value = newHash;
-                localStorage.setItem("route-hash", newHash);
-            }
-        );
-    }
-});
-
 const githubLink = "https://github.com/jasonchuacodes";
 const linkedInlink = "https://www.linkedin.com/in/jason-clyde-chua-65a322243/";
 </script>
