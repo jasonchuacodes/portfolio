@@ -5,21 +5,18 @@
     id: number;
     linkTo: string;
   };
-  
-defineProps<SidebarItemProps>();
-const route = useRoute();
-const currentHash = ref('')
 
-onMounted(() => {
-  if (process.client) {
-   currentHash.value = localStorage.getItem('route-hash') || '/'
-  }
+  defineProps<SidebarItemProps>();
+  const currentHash = ref("");
 
-  watch(() => route.hash, (newHash) => {
-    currentHash.value = newHash;
-    localStorage.setItem('route-hash', newHash);
+  onMounted(() => {
+    window.addEventListener(
+      "hash-change", (e: CustomEventInit) => {
+        currentHash.value = e.detail.newHash;
+      },
+      false
+    );
   });
-});
 </script>
 <template>
   <a
@@ -30,3 +27,4 @@ onMounted(() => {
     <Icon v-if="icon" :name="icon" class="w-4 h-4" /><span>{{ title }}</span>
   </a>
 </template>
+
