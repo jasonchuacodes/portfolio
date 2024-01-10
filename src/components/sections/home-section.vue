@@ -9,7 +9,7 @@
     id="home"
     class="flex flex-col justify-center items-center h-screen py-10 max-w-[640px] space-y-16 text-light"
   >
-    <TemplateHeroBanner
+    <BaseHeroBanner
       ref="target"
       v-element-visibility="onElementVisibility"
       title="Jason Clyde Chua"

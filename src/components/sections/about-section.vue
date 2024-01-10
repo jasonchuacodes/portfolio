@@ -1,22 +1,21 @@
 <script setup>
-  import { vElementVisibility } from "@vueuse/components";
+import { vElementVisibility } from "@vueuse/components";
 
-  const target = ref(null);
-  const { onElementVisibility } = useElementVisibility("#about");
+const target = ref(null);
+const { onElementVisibility, isVisible } = useElementVisibility("#about");
 </script>
 <template>
-  <div
-    id="about"
-    class="flex flex-col justify-center items-center min-h-screen w-full py-10 space-y-16 text-light"
-  >
-    <div class="flex w-full max-w-[640px]">
-      <TemplateHeroBanner
+    <div
         ref="target"
-        v-element-visibility="onElementVisibility"
-        title="timeline"
-      />
+        id="about"
+        class="flex flex-col justify-center items-center w-full min-h-screen py-10 space-y-16 text-light"
+    >
+        <BaseBanner
+            v-element-visibility="onElementVisibility"
+            title="timeline"
+        />
+        <template v-if="isVisible">
+            <TemplateTimeline />
+        </template>
     </div>
-    <TemplateTimeline />
-  </div>
 </template>
-

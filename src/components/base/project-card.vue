@@ -8,8 +8,8 @@ type ProjectCardProps = {
 };
 
 type ProjectCardEmits = {
-    (e: 'set-active-card', id: number): void,
-    (e: 'set-detail', detail: string): void,
+    (e: "set-active-card", id: number): void;
+    (e: "set-detail", detail: string): void;
 };
 
 defineProps<ProjectCardProps>();
@@ -17,14 +17,16 @@ defineEmits<ProjectCardEmits>();
 </script>
 <template>
     <div
-        @click="$emit('set-active-card', id), $emit('set-detail', projectDetail)"
-        class=" card-container relative transition-all ease-out duration-300 cursor-pointer"
+        class="container relative transition-all ease-out duration-300 cursor-pointer"
         :class="{
             'opacity-100': activeId == id,
             'opacity-50': activeId !== id,
             'hover:opacity-75': activeId !== id,
-            'text-primary-500': activeId == id
+            'text-primary-500': activeId == id,
         }"
+        @click="
+            $emit('set-active-card', id), $emit('set-detail', projectDetail)
+        "
     >
         <div
             class="flex h-[96px] bg-light justify-center items-center overflow-hidden"
@@ -40,7 +42,7 @@ defineEmits<ProjectCardEmits>();
     </div>
 </template>
 <style scoped>
-.card-container {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,8 +53,8 @@ defineEmits<ProjectCardEmits>();
     padding: 0 1px;
 }
 
-.card-container::before,
-.card-container::after {
+.container::before,
+.container::after {
     content: "";
     position: absolute;
     top: 0;
@@ -61,11 +63,11 @@ defineEmits<ProjectCardEmits>();
     background: linear-gradient(to bottom, transparent, #fff, transparent);
 }
 
-.card-container::before {
+.container::before {
     left: 0;
 }
 
-.card-container::after {
+.container::after {
     right: 0;
 }
 </style>

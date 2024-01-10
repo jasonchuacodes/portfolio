@@ -21,12 +21,15 @@
     id="work"
     class="flex flex-col justify-center items-center h-screen py-10 mb-60 space-y-10 overflow-hidden"
   >
+  <BaseBanner
+            v-element-visibility="onElementVisibility"
+            title="projects"
+        />
+
     <div
-      ref="target"
-      v-element-visibility="onElementVisibility"
       class="flex w-full mx-auto justify-center space-x-4"
     >
-      <div v-for="project in projects">
+      <template v-for="project in projects">
         <BaseProjectCard
           :id="project.id"
           :title="project.title"
@@ -36,7 +39,7 @@
           @set-active-card="setActiveCard"
           @set-detail="setProjectDetail"
         />
-      </div>
+      </template>
     </div>
     <div class="relative max-w-[640px] h-56 mx-auto overflow-auto text-light">
       <label

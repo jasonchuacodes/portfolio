@@ -1,28 +1,91 @@
 <script setup lang="ts">
-  type TimelineBoxProps = {
+type TimelineBoxProps = {
     position: string;
-  };
-  defineProps<TimelineBoxProps>();
+    shortName: string;
+    name: string;
+    period: string;
+    description: string;
+};
+defineProps<TimelineBoxProps>();
 </script>
 <template>
-  <div
-    class="container relative px-12 w-1/2 py-4 bg-white/0"
-    :class="position == 'right' ? 'left-1/2' : 'left-0'"
-  >
+    <!-- Timeline box container -->
     <div
-      class="absolute w-10 h-10 top-1/2 -translate-y-1/2 bg-dark/40"
-      :class="position == 'right' ? '-left-[20px]' : '-right-[20px]'"
+        class="container relative w-1/2 pt-10"
+        :class="position == 'left' ? 'left-0 pr-20' : 'left-1/2 pl-20'"
     >
-      X
-    </div>
-    <div class="text-box relative py-4 px-12 bg-white/40">
-      <h2>Alphabet Inc.</h2>
-      <small>2018-2019</small>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi fuga
-        soluta beatae in ipsam eos ra.
-      </p>
-    </div>
-  </div>
-</template>
+        <!-- Logo container -->
+        <div
+            class="logo absolute flex justify-center items-center h-12 w-12 border-light border-[1px] z-10 font-russo text-h4 bg-light/20"
+            :class="
+                position == 'left'
+                    ? 'right-0 -translate-x-1/2 left-line'
+                    : 'left-0 translate-x-1/2 right-line'
+            "
+        >
+            {{ shortName }}
+        </div>
 
+        <!-- Text box container -->
+        <div
+            class="text-box relative flex flex-col px-2"
+            :class="position == 'left' ? 'items-end' : ''"
+        >
+            <h2
+                class="font-russo text-h3 text-primary-500"
+                :class="position == 'left' ? 'text-end' : 'text-start'"
+            >
+                {{ name }}
+            </h2>
+            <small>{{ period }}</small>
+            <p :class="position == 'left' ? 'text-end' : 'text-start'">
+                {{ description }}
+            </p>
+        </div>
+    </div>
+</template>
+<style scoped>
+.container {
+    animation: movedown 1s linear forwards;
+    opacity: 0;
+}
+
+@keyframes movedown {
+    0%{ 
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100%{ 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.container:nth-child(1) {
+    animation-delay: 0s;
+}
+.container:nth-child(2) {
+    animation-delay: 1s;
+}
+.container:nth-child(3) {
+    animation-delay: 2s;
+}
+.container:nth-child(4) {
+    animation-delay: 3s;
+}
+
+.logo::after {
+    content: "";
+    height: 0;
+    width: 50%;
+    border: 1px solid rgba(160, 167, 173, 0.5);
+    position: absolute;
+}
+.logo.left-line::after {
+    right: 0;
+    transform: translateX(100%);
+}
+.logo.right-line::after {
+    left: 0;
+    transform: translateX(-100%);
+}
+</style>
