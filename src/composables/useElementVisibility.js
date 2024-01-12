@@ -1,6 +1,9 @@
 export default function useRedirectToHash(toLink) {
+    const isVisible = ref(false)
+
   function onElementVisibility(state) {
     if (state) {
+      isVisible.value = true;
       updateHashWithoutRedirect(toLink);
     }
   }
@@ -17,5 +20,6 @@ export default function useRedirectToHash(toLink) {
 
   return {
     onElementVisibility,
+    isVisible
   };
 }

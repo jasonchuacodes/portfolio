@@ -1,50 +1,74 @@
 <script setup lang="ts">
-  import { vElementVisibility } from "@vueuse/components";
-  import projects from "@/data/projects";
+import { vElementVisibility } from "@vueuse/components";
+import projects from "@/data/projects";
 
-  const target = ref(null);
-  const { onElementVisibility } = useElementVisibility("#work");
+const target = ref(null);
+const { isVisible, onElementVisibility } = useElementVisibility("#work");
 
-  const activeId = ref(1);
-  const details = ref(projects[0].title);
+const activeId = ref<number | null>(null);
+const detail = ref("");
 
-  const setActiveCard = (id: number) => {
+const handleOpenModal = (id: number, projectDetail: string) => {
     activeId.value = id;
-  };
+    detail.value = projectDetail;
+};
 
-  const setProjectDetail = (info: string) => {
-    details.value = info;
-  };
+const handleCloseModal = () => {
+    activeId.value = null;
+    detail.value = "";
+};
+
+
 </script>
 <template>
-  <div
-    id="work"
-    class="flex flex-col justify-center items-center h-screen py-10 mb-60 space-y-10 overflow-hidden"
-  >
     <div
-      ref="target"
-      v-element-visibility="onElementVisibility"
-      class="flex w-full mx-auto justify-center space-x-4"
+        id="work"
+        class="relative flex flex-col justify-center items-center w-full max-w-[640px] h-screen py-10 mb-60 overflow-hidden space-y-10"
     >
-      <div v-for="project in projects">
-        <BaseProjectCard
-          :id="project.id"
-          :title="project.title"
-          :filename="project.filename"
-          :project-detail="project.detail"
-          :activeId="activeId"
-          @set-active-card="setActiveCard"
-          @set-detail="setProjectDetail"
-        />
-      </div>
+        <div class="flex justify-center w-full mb-4">
+            <BaseBanner
+                ref="target"
+                v-element-visibility="onElementVisibility"
+                title="projects"
+            />
+        </div>
+        <div
+            v-if="isVisible"
+            class="relative flex flex-col items-center justify-center w-full"
+        >
+            <!-- Cards -->
+            <template
+                v-for="{
+                    id,
+                    mainTitle,
+                    subTitle,
+                    detail,
+                    technologies,
+                } in projects"
+            >
+                <BaseProjectCard
+                    :id="id"
+                    :main-title="mainTitle"
+                    :sub-title="subTitle"
+                    :active-id="activeId"
+                    :detail="detail"
+                    @open-modal="handleOpenModal"
+                />
+                <BaseModal
+                    :show-modal="activeId == id"
+                    :main-title="mainTitle"
+                    :sub-title="subTitle"
+                    :detail="detail"
+                    :technologies="technologies"
+                    @close-modal="handleCloseModal"
+                />
+            </template>
+        </div>
     </div>
-    <div class="relative max-w-[640px] h-56 mx-auto overflow-auto text-light">
-      <label
-        class="flex w-full sticky top-0 text-l1-r uppercase tracking-widest p-2 bg-neutral/50"
-        >Details:
-      </label>
-      <p class="text-p2-r p-2">{{ details }}</p>
-    </div>
-  </div>
+    <!-- Modal backdrop -->
+    <div
+        @click="handleCloseModal"
+        v-if="!!activeId"
+        class="modal-wrapper absolute flex flex-col justify-center items-center w-full h-full bg-black/10"
+    ></div>
 </template>
-

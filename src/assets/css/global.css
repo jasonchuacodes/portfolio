@@ -1,27 +1,30 @@
-<template>
-    <div
-        class="hero flex flex-col items-center justify-center w-full py-2 bg-white/10"
-    >
-        <h1 class="font-russo text-h1 tracking-wide uppercase text-onSurface">
-            {{ title }}
-        </h1>
-        <p
-            class="font-rubik text-l1-r tracking-widest font-sans uppercase text-primary-500"
-        >
-            {{ position }}
-        </p>
-    </div>
-</template>
-<script setup lang="ts">
-type HeroBannerProps = {
-    title: string;
-    position: string;
-};
+::-webkit-scrollbar {
+    width: 10px;
+}
 
-defineProps<HeroBannerProps>();
-</script>
-<style scoped>
-.hero {
+/* Track */
+::-webkit-scrollbar-track {
+    background: #888;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b3b3b3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animate scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Animate border */
+.rotating-border {
     animation: rotating-border 3s ease-in-out 0s infinite forwards;
 }
 
@@ -57,4 +60,27 @@ defineProps<HeroBannerProps>();
         border-left: 1px solid rgba(255, 255, 255, 0);
     }
 }
-</style>
+
+@keyframes slide-in-from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-120%)
+    }  
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-in-from-right {
+    0% {
+        opacity: 0;
+        transform: translateX(120%)
+    }  
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+
