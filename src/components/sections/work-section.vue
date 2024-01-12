@@ -5,12 +5,25 @@ import projects from "@/data/projects";
 const target = ref(null);
 const { isVisible, onElementVisibility } = useElementVisibility("#work");
 
-const activeId = 1;
+const activeId = ref<number | null>(null);
+const detail = ref("");
+
+const handleOpenModal = (id: number, projectDetail: string) => {
+    activeId.value = id;
+    detail.value = projectDetail;
+};
+
+const handleCloseModal = () => {
+    activeId.value = null;
+    detail.value = "";
+};
+
+
 </script>
 <template>
     <div
         id="work"
-        class="relative flex flex-col justify-center items-center w-full max-w-[640px] h-screen py-10 mb-60 space-y-10 overflow-hidden"
+        class="relative flex flex-col justify-center items-center w-full max-w-[640px] h-screen py-10 mb-60 overflow-hidden space-y-10"
     >
         <div class="flex justify-center w-full mb-4">
             <BaseBanner
@@ -24,15 +37,38 @@ const activeId = 1;
             class="relative flex flex-col items-center justify-center w-full"
         >
             <!-- Cards -->
-            <template v-for="{ id, mainTitle, subTitle } in projects">
+            <template
+                v-for="{
+                    id,
+                    mainTitle,
+                    subTitle,
+                    detail,
+                    technologies,
+                } in projects"
+            >
                 <BaseProjectCard
                     :id="id"
                     :main-title="mainTitle"
                     :sub-title="subTitle"
+                    :active-id="activeId"
+                    :detail="detail"
+                    @open-modal="handleOpenModal"
+                />
+                <BaseModal
+                    :show-modal="activeId == id"
+                    :main-title="mainTitle"
+                    :sub-title="subTitle"
+                    :detail="detail"
+                    :technologies="technologies"
+                    @close-modal="handleCloseModal"
                 />
             </template>
         </div>
     </div>
+    <!-- Modal backdrop -->
+    <div
+        @click="handleCloseModal"
+        v-if="!!activeId"
+        class="modal-wrapper absolute flex flex-col justify-center items-center w-full h-full bg-black/10"
+    ></div>
 </template>
-<styles scoped>
-</styles>

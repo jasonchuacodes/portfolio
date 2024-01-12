@@ -71,6 +71,7 @@ html {
         transform: translateX(0%);
     }
 }
+
 @keyframes slide-in-from-right {
     0% {
         opacity: 0;
@@ -81,3 +82,5 @@ html {
         transform: translateX(0%);
     }
 }
+
+
