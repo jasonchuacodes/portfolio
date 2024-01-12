@@ -22,7 +22,7 @@ const layer0 = computed(() => ({
 <template>
     <div
         ref="target"
-        class="relative flex w-full items-start bg-default text-white"
+        class="relative flex items-start bg-default text-white"
     >
         <div
             :style="layer0"

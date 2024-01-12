@@ -32,7 +32,7 @@ defineProps<TimelineBoxProps>();
             :class="position == 'left' ? 'items-end' : ''"
         >
             <h2
-                class="font-russo text-h3 text-primary-500"
+                class="font-russo text-h3 text-primary-500/80"
                 :class="position == 'left' ? 'text-end' : 'text-start'"
             >
                 {{ name }}
@@ -64,13 +64,13 @@ defineProps<TimelineBoxProps>();
     animation-delay: 0s;
 }
 .container:nth-child(2) {
-    animation-delay: 1s;
+    animation-delay: 0.67s;
 }
 .container:nth-child(3) {
-    animation-delay: 2s;
+    animation-delay: 1.3s;
 }
 .container:nth-child(4) {
-    animation-delay: 3s;
+    animation-delay: 2s;
 }
 
 .logo::after {
