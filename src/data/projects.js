@@ -11,7 +11,7 @@ const projects = [
         mainTitle: "meets",
         subTitle: "one",
         technologies: ["vue", "nodejs", "typescript"],
-        detail: "lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. ",
+        detail: "lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lore et. lorem ipsum dolor sit amet. lore et. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. ",
     },
     {
         id: 3,
@@ -25,7 +25,7 @@ const projects = [
         mainTitle: "bar",
         subTitle: "clerk",
         technologies: ["vue", "nodejs", "typescript"],
-        detail: "lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. ",
+        detail: "lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. r sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit ar sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit alorem ipsum dolor sit amet. lorem ipsum dolor sit amet. ",
     },
 ];
 

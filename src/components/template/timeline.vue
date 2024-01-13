@@ -31,7 +31,7 @@ import timelineItems from "@/data/timeline-items";
     transform: translateX(-50%);
     top: 0;
     position: absolute;
-    animation: moveline 2s linear forwards;
+    animation: moveline 4s linear forwards;
 }
 
 @keyframes moveline {
@@ -53,7 +53,7 @@ import timelineItems from "@/data/timeline-items";
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    animation: arrow 0s linear 2s forwards;
+    animation: arrow 0s linear 4s forwards;
     opacity: 0;
 }
 @keyframes arrow {
