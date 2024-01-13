@@ -64,13 +64,13 @@ defineProps<TimelineBoxProps>();
     animation-delay: 0s;
 }
 .container:nth-child(2) {
-    animation-delay: 0.67s;
+    animation-delay: 1s;
 }
 .container:nth-child(3) {
-    animation-delay: 1.3s;
+    animation-delay: 2s;
 }
 .container:nth-child(4) {
-    animation-delay: 2s;
+    animation-delay: 3s;
 }
 
 .logo::after {
