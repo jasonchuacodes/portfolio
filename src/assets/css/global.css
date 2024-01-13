@@ -61,25 +61,25 @@ html {
     }
 }
 
-@keyframes slide-in-from-left {
+@keyframes slide-in-from-top {
     0% {
         opacity: 0;
-        transform: translateX(-120%)
+        transform: translateY(-200%)
     }  
     100% {
         opacity: 1;
-        transform: translateX(0%);
+        transform: translateY(0%);
     }
 }
 
-@keyframes slide-in-from-right {
+@keyframes slide-in-from-bottom {
     0% {
         opacity: 0;
-        transform: translateX(120%)
+        transform: translateY(200%)
     }  
     100% {
         opacity: 1;
-        transform: translateX(0%);
+        transform: translateY(0%);
     }
 }
 

@@ -14,10 +14,10 @@ const emit = defineEmits<{
 </script>
 <template>
     <div
-        class="card relative flex justify-center items-center w-full h-[120px] transition-all ease-out duration-300 cursor-pointer text-light"
+        class="card relative flex justify-center items-center w-full h-[592px] transition-all ease-out duration-300 cursor-pointer text-light"
         :class="{
-            left: id % 2 !== 0,
-            right: id % 2 == 0,
+            odd: id % 2 !== 0,
+            even: id % 2 == 0,
         }"
         @click="emit('open-modal', id, detail)"
     >
@@ -37,61 +37,48 @@ const emit = defineEmits<{
 /* Card transitions */
 .card {
     background: linear-gradient(
-        to right,
+        to bottom,
         transparent,
         rgba(255, 255, 255, 0.04),
         transparent
     );
 }
-.card.left {
-    transform: translateX(-100%);
-    animation: slide-in-from-left 500ms ease-in-out 0s forwards;
+.card.odd {
+    transform: translateY(-200%);
+    animation: slide-in-from-top 1s ease-in-out 0s forwards;
 }
-.card.right {
-    transform: translateX(100%);
-    animation: slide-in-from-right 500ms ease-in-out 0s forwards;
-}
-.card:nth-child(1) {
-    animation-delay: 0s;
-}
-.card:nth-child(2) {
-    animation-delay: 200ms;
-}
-.card:nth-child(3) {
-    animation-delay: 400ms;
-}
-.card:nth-child(4) {
-    animation-delay: 600ms;
+.card.even {
+    transform: translateY(200%);
+    animation: slide-in-from-bottom 1s ease-in-out 0s forwards;
 }
 /* Card y-border */
 .card::after,
-.card:first-child::before {
+.card:last-child::before {
     content: "";
     position: absolute;
-    right: 0;
-    left: 0;
-    height: 1px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
     background: linear-gradient(
-        to right,
+        to bottom,
         transparent,
         rgba(255, 255, 255, 0.5),
         transparent
     );
 }
 .card::before {
-    top: 0;
+    right: 0;
 }
 .card::after {
-    bottom: 0;
+    left: 0;
 }
 .card:hover {
     background: linear-gradient(
-        to right,
+        to bottom,
         transparent,
-        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.10),
         transparent
     );
     color: white;
-    scale: 1.05;
 }
 </style>
