@@ -2,7 +2,7 @@
 import timelineItems from "@/data/timeline-items";
 </script>
 <template>
-    <div class="timeline relative flex flex-col max-w-4xl mx-auto">
+    <div class="timeline relative flex flex-col py-2 max-w-4xl mx-auto">
         <template
             v-for="{
                 position,

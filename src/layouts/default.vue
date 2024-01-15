@@ -30,7 +30,7 @@ const layer0 = computed(() => ({
         ></div>
         <TemplateSidebar />
         <BaseFallingBoxes />
-        <div class="flex flex-1 justify-center items-center overflow-auto">
+        <div class="flex justify-center items-center w-full">
             <slot />
         </div>
     </div>
