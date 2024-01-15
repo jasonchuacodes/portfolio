@@ -19,9 +19,9 @@ const sidebarItems = [
   },
   {
       id: 4,
-      title: "CONTACT",
-      linkTo: "#contact",
-      icon: "mdi:mail",
+      title: "SKILLS",
+      linkTo: "#skills",
+      icon: "mdi:pen",
   },
 ];
 

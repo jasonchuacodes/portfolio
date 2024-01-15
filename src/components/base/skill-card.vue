@@ -44,19 +44,19 @@
 <style scoped>
   .card::before {
     content: "";
-    border-top: 2px solid rgba(255, 255, 255, 0.5);
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 4px solid rgba(255, 255, 255, 0.5);
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
     position: absolute;
     width: 100%;
-    height: 4px;
+    height: 10px;
     top: 0px;
     left: 0;
     transform: scaleX(1);
     transition: 0.3s;
     transition-timing-function: ease-out;
   }
-  .card:hover::before {
+  .card::before {
     transform: scaleX(1);
     border-top: 2px solid rgba(255, 255, 255, 0.8);
   }
@@ -73,7 +73,7 @@
     transition-timing-function: ease-out;
   }
   .card:hover::after {
-    transform: scale(1);
+    transform: scale(1.2);
   }
   .skill-info-enter-active,
   .skill-info-leave-active {

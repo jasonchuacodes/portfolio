@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
+    border-radius: 20px;
 }
 
 /* Track */
@@ -21,7 +22,6 @@
 html {
     scroll-behavior: smooth;
 }
-
 
 /* Animate border */
 .rotating-border {

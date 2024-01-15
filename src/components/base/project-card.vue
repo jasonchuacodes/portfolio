@@ -14,7 +14,7 @@ const emit = defineEmits<{
 </script>
 <template>
     <div
-        class="card relative flex justify-center items-center w-full h-[592px] transition-all ease-out duration-300 cursor-pointer text-light"
+        class="card group relative flex justify-center items-center w-full h-[592px] transition-all ease-out duration-300 cursor-pointer text-light"
         :class="{
             odd: id % 2 !== 0,
             even: id % 2 == 0,
@@ -22,7 +22,7 @@ const emit = defineEmits<{
         @click="emit('open-modal', id, detail)"
     >
         <div
-            class="flex flex-col h-full w-full justify-center items-center font-sans"
+            class="flex flex-col h-full w-full justify-center items-center font-sans  group-hover:scale-110 transition-all ease-in duration-200"
         >
             <span class="tracking-widest uppercase">
                 {{ mainTitle }}
