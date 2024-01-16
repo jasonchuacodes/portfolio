@@ -19,7 +19,7 @@
       title="Jason Clyde Chua"
       position="Web Developer"
     />
-    <div class="flex justify-center indent-8 text-center w-full text-[20px]">
+    <div class="flex justify-center indent-8 text-center w-full text-h4">
       Passionate full-stack web developer with an enthusiasm for learning and applying new tech. Has an eager fondness and proficiency in JavaScript, Typescipt, and NodeJS.
     </div>
     <div class="flex space-x-4">

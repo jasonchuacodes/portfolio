@@ -1,14 +1,15 @@
 <script setup lang="ts">
   import { vElementVisibility } from "@vueuse/components";
   import projects from "@/data/projects";
+import { DetailProps } from "../base/project-card.vue";
 
   const target = ref(null);
-  const { isVisible, onElementVisibility } = useElementVisibility("#work");
+  const { isVisible, onElementVisibility } = useElementVisibility("#projects");
 
   const activeId = ref<number | null>(null);
-  const detail = ref("");
+  const detail = ref<string | DetailProps>("");
 
-  const handleOpenModal = (id: number, projectDetail: string) => {
+  const handleOpenModal = (id: number, projectDetail: DetailProps) => {
     activeId.value = id;
     detail.value = projectDetail;
   };
@@ -20,7 +21,7 @@
 </script>
 <template>
   <div
-    id="work"
+    id="projects"
     class="relative flex flex-col justify-center items-center w-full max-w-[640px] h-screen py-10 overflow-hidden space-y-10"
   >
     <BaseBanner
