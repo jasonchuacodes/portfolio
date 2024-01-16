@@ -1,15 +1,21 @@
 <script setup lang="ts">
+export type DetailProps = {
+    overview: string;
+    contributions: string;
+    achievement?: string;
+};
+
 type ProjectCardProps = {
     id: number;
     mainTitle: string;
     subTitle: string;
-    detail: string;
+    detail: DetailProps;
     activeId: number | null;
 };
 
 defineProps<ProjectCardProps>();
 const emit = defineEmits<{
-    (event: "open-modal", id: number, detail: string): void;
+    (event: "open-modal", id: number, detail: DetailProps): void;
 }>();
 </script>
 <template>
